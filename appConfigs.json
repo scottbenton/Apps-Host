@@ -1,0 +1,8 @@
+[
+  {
+    "name": "DevTools",
+    "friendlyName": "Developer Tools",
+    "description": "Developer tools are only available to users with access, and will appear as a toggleable pane on the right side of the screen.",
+    "entry": "http://localhost:8081"
+  }
+]
