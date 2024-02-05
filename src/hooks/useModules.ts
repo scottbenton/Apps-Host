@@ -60,12 +60,11 @@ export function setModuleOverride(
 
   if (entryPoint) {
     overrides[moduleName] = entryPoint;
-
-    localStorage.setItem('module_overrides', JSON.stringify(overrides));
-    location.reload();
   } else {
     delete overrides[moduleName];
   }
+  localStorage.setItem('module_overrides', JSON.stringify(overrides));
+  location.reload();
 }
 
 export function useModules() {
