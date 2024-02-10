@@ -83,11 +83,15 @@ module.exports = (_, argv) => ({
         },
       },
     }),
-    new MFLiveReloadPlugin({
-      port: PORT, // the port your app runs on
-      container: "scottbenton_micro_frontend_host", // the name of your app, must be unique
-      standalone: true, // false uses chrome extention
-    }),
+    ...(argv.mode === "development"
+      ? [
+          new MFLiveReloadPlugin({
+            port: PORT, // the port your app runs on
+            container: "scottbenton_micro_frontend_host", // the name of your app, must be unique
+            standalone: true, // false uses chrome extention
+          }),
+        ]
+      : []),
     new WebpackRemoteTypesPlugin({
       remotes: deployedRemoteModules,
       outputDir: "types", // supports [name] as the remote name
