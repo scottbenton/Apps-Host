@@ -17,7 +17,7 @@ const remoteModules = {
 
 const deployedRemoteModules = {
   home_page: "home_page@https://apps-homepage.web.app/remoteEntry.js",
-  // dev_tools: "dev_tools@http://localhost:3001/remoteEntry.js",
+  dev_tools: "dev_tools@https://scott-benton-dev-tools.web.app/remoteEntry.js",
 };
 
 const cacheBustingRemoteModules = {};
@@ -61,6 +61,11 @@ module.exports = (_, argv) => ({
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        exclude: /node_modules/,
+        type: "asset/resource",
       },
     ],
   },
