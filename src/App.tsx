@@ -14,13 +14,7 @@ const App = () => (
       <title>Scott Benton's Apps</title>
       <link rel="icon" href={FavIcon} />
     </Helmet>
-    <div className="container">
-      <div>Name: scottbenton-micro-frontend-host</div>
-      <div>Framework: react</div>
-      <div>Language: TypeScript</div>
-      <div>CSS: Empty CSS</div>
-      <HomePage />
-    </div>
+    <HomePage />
     <DevTools />
   </HelmetProvider>
 );

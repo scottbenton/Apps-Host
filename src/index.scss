@@ -3,3 +3,9 @@
 body {
   font-family: "Inter Variable", sans-serif;
 }
+
+#app {
+  min-height: 100lvh;
+  display: flex;
+  flex-direction: column;
+}
