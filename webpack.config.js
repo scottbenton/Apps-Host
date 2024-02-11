@@ -18,17 +18,10 @@ const deployedRemoteModules = {};
 modules.forEach((module) => {
   remoteModules[
     module.scope
-  ] = `${module.scope}@[window.${module.scope}_url]/remoteEntry.js`;
+  ] = `${module.scope}@[window.${module.scope}_url]/remoteEntry.js?v=[Date.now()]`;
   deployedRemoteModules[
     modules.scope
   ] = `${module.scope}@${module.defaultUrl}/remoteEntry.js`;
-});
-
-const cacheBustingRemoteModules = {};
-Object.keys(remoteModules).forEach((moduleKey) => {
-  cacheBustingRemoteModules[moduleKey] = `${
-    remoteModules[moduleKey]
-  }?${new Date().getTime()}`;
 });
 
 module.exports = (_, argv) => ({
@@ -79,7 +72,7 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: name,
       filename: "remoteEntry.js",
-      remotes: cacheBustingRemoteModules,
+      remotes: remoteModules,
       exposes: {},
       shared: {
         ...deps,
