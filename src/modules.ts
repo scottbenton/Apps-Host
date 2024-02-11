@@ -1,37 +1,24 @@
+import modules from "../modules.json";
+
 export interface IModule {
   name: string;
-  moduleKey: string;
-  windowKey: string;
+  description: string;
+  scope: string;
   defaultUrl: string;
 }
 
 export interface IModuleOverrides {
-  [moduleKey: string]: string;
+  [scope: string]: string;
 }
-
-export const modules: IModule[] = [
-  {
-    name: "Home Page",
-    moduleKey: "home_page",
-    windowKey: "home_page_url",
-    defaultUrl: "https://apps-homepage.web.app",
-  },
-  {
-    name: "Dev Tools",
-    moduleKey: "dev_tools",
-    windowKey: "dev_tools_url",
-    defaultUrl: "https://scott-benton-dev-tools.web.app",
-  },
-];
 
 export function initModuleURLs() {
   localStorage.setItem("modules", JSON.stringify(modules));
   const moduleOverrides = fetchModuleOverridesFromLocalStorage();
 
   modules.forEach((module) => {
-    const moduleUrl = moduleOverrides[module.moduleKey] ?? module.defaultUrl;
-    console.debug(`Setting ${module.windowKey} to ${moduleUrl}.`);
-    (window as any)[module.windowKey] = moduleUrl;
+    const moduleUrl = moduleOverrides[module.scope] ?? module.defaultUrl;
+    console.debug(`Setting ${module.scope} to ${moduleUrl}.`);
+    (window as any)[`${module.scope}_url`] = moduleUrl;
   });
 }
 

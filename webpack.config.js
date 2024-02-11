@@ -2,7 +2,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 const WebpackRemoteTypesPlugin = require("webpack-remote-types-plugin").default;
-const { MFLiveReloadPlugin } = require("@module-federation/fmr");
+
+const modules = require("./modules.json");
 
 const Dotenv = require("dotenv-webpack");
 const deps = require("./package.json").dependencies;
@@ -10,15 +11,18 @@ const deps = require("./package.json").dependencies;
 const name = "scottbenton_micro_frontend_host";
 const PORT = 8080;
 
-const remoteModules = {
-  home_page: "home_page@[window.home_page_url]/remoteEntry.js",
-  dev_tools: "dev_tools@[window.dev_tools_url]/remoteEntry.js",
-};
+const remoteModules = {};
 
-const deployedRemoteModules = {
-  home_page: "home_page@https://apps-homepage.web.app/remoteEntry.js",
-  dev_tools: "dev_tools@https://scott-benton-dev-tools.web.app/remoteEntry.js",
-};
+const deployedRemoteModules = {};
+
+modules.forEach((module) => {
+  remoteModules[
+    module.scope
+  ] = `${module.scope}@[window.${module.scope}_url]/remoteEntry.js`;
+  deployedRemoteModules[
+    modules.scope
+  ] = `${module.scope}@${module.defaultUrl}/remoteEntry.js`;
+});
 
 const cacheBustingRemoteModules = {};
 Object.keys(remoteModules).forEach((moduleKey) => {
@@ -67,6 +71,7 @@ module.exports = (_, argv) => ({
         exclude: /node_modules/,
         type: "asset/resource",
       },
+      { test: /\.json$/, type: "json" },
     ],
   },
 
@@ -86,17 +91,16 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: deps["react-router-dom"],
+        },
+        "react-helmet-async": {
+          singleton: true,
+          requiredVersion: deps["react-helmet-async"],
+        },
       },
     }),
-    ...(argv.mode === "development"
-      ? [
-          new MFLiveReloadPlugin({
-            port: PORT, // the port your app runs on
-            container: "scottbenton_micro_frontend_host", // the name of your app, must be unique
-            standalone: true, // false uses chrome extention
-          }),
-        ]
-      : []),
     new WebpackRemoteTypesPlugin({
       remotes: deployedRemoteModules,
       outputDir: "types", // supports [name] as the remote name

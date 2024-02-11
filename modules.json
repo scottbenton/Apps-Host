@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Home Page",
+    "description": "The root page for this microfrontend",
+    "scope": "home_page",
+    "defaultUrl": "https://apps-homepage.web.app"
+  },
+  {
+    "name": "Developer Tools",
+    "description": "A series of helpers that make developing and debugging easier",
+    "scope": "dev_tools",
+    "defaultUrl": "https://scott-benton-dev-tools.web.app"
+  },
+  {
+    "name": "Authentication",
+    "description": "Routes, contexts, and hooks related to authentication",
+    "scope": "auth_ui",
+    "defaultUrl": "https://scottbenton-auth-ui.web.app"
+  }
+]
