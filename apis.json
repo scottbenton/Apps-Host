@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Authentication API",
+    "description": "This API handles setting and fetching user credentials, sessions, and basic info",
+    "key": "auth_api",
+    "defaultUrl": "https://api.auth.scottbenton.dev"
+  }
+]
