@@ -26,7 +26,7 @@ modules.forEach((module) => {
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "auto",
+    publicPath: "/",
   },
 
   resolve: {
