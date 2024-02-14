@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { DevTools } from "./modules/DevTools.module";
 import "./index.scss";
 import "@fontsource-variable/inter";
 import { HelmetProvider, Helmet } from "react-helmet-async";
@@ -17,7 +16,6 @@ const App = () => (
         <link rel="icon" href={FavIcon} />
       </Helmet>
       <RouterProvider router={router} />
-      <DevTools />
     </AuthProvider>
   </HelmetProvider>
 );

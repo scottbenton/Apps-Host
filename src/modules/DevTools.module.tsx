@@ -1,5 +1,5 @@
 import React, { lazy } from "react";
-import { ModuleWrapper } from "../ModuleWrapper";
+import { ModuleWrapper } from "./ModuleWrapper";
 
 const DevToolsLazy = lazy(() =>
   // @ts-ignore
