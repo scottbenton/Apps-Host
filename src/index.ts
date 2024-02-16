@@ -1,7 +1,5 @@
-import { initApiUrls } from "./apiUrls";
-import { initModuleURLs } from "./modules";
+import { initModules } from "@scottbenton/apps-config";
 
-initModuleURLs();
-initApiUrls();
+initModules();
 
 import("./App");
