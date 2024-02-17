@@ -7,6 +7,7 @@ import FavIcon from "./BaseLogo.svg";
 import { RouterProvider } from "react-router-dom";
 import AuthProvider from "auth_ui/AuthProvider";
 import { router } from "./routes";
+// import "react-singleton-context";
 
 const App = () => (
   <HelmetProvider>
