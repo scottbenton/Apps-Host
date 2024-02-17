@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.16",
-    "@scottbenton/apps-build": "^1.2.0",
+    "@scottbenton/apps-build": "^1.2.1",
     "external-remotes-plugin": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
