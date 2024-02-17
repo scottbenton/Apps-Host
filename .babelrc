@@ -1,9 +1,3 @@
 {
-  "presets": [
-    "@babel/preset-typescript",
-    "@babel/preset-react",
-    "@babel/preset-env"
-  ],
-  "moduleRoot": "src/index.tsx",
-  "plugins": [["@babel/transform-runtime"]]
+  "extends": "@scottbenton/apps-build/config/babel.config.js"
 }

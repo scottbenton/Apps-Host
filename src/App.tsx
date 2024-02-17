@@ -13,8 +13,8 @@ const App = () => (
   <HelmetProvider>
     <AuthProvider>
       <Helmet>
-        <title>Scott Benton's Apps</title>
-        <link rel="icon" href={FavIcon} />
+        <title>Scott Benton{"'"}s Apps</title>
+        <link rel='icon' href={FavIcon} />
       </Helmet>
       <RouterProvider router={router} />
     </AuthProvider>

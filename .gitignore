@@ -118,3 +118,4 @@ dist
 # Generated Remote Module Types
 types/
 @mf-types/
+.vscode/
