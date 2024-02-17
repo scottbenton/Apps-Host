@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { authRoutes } from "auth_ui/authRoutes";
 import { HomePage } from "./modules/HomePage.module";
 import { DevToolsWrapper } from "./modules/DevToolsWrapper";
+
+import { authRoutes } from "auth_ui/authRoutes";
+import { routes as dungeonManagerRoutes } from "dungeon_manager/routes";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +14,7 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       ...authRoutes,
+      ...dungeonManagerRoutes,
     ],
   },
 ]);

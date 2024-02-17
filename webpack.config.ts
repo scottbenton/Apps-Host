@@ -8,6 +8,7 @@ const config = constructBaseWebpackConfig({
     ModuleScope.Authentication,
     ModuleScope.DeveloperTools,
     ModuleScope.HomePage,
+    ModuleScope.DungeonManager,
   ],
 });
 
