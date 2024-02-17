@@ -1,3 +1,0 @@
-{
-  "extends": "@scottbenton/apps-build/config/babel.config.js"
-}

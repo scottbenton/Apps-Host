@@ -15,7 +15,7 @@
     "email": "jherr@pobox.com"
   },
   "devDependencies": {
-    "@scottbenton/apps-build": "^1.4.1",
+    "@scottbenton/apps-build": "^1.4.2",
     "autoprefixer": "^10.4.17",
     "tailwindcss": "^3.4.1"
   },
