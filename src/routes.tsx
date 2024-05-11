@@ -4,6 +4,7 @@ import { DevToolsWrapper } from "./modules/DevToolsWrapper";
 
 import { authRoutes } from "auth_ui/authRoutes";
 import { routes as dungeonManagerRoutes } from "dungeon_manager/routes";
+import { routes as ironswornRoutes } from "iron_link/routes";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
       },
       ...authRoutes,
       ...dungeonManagerRoutes,
+      ...ironswornRoutes,
     ],
   },
 ]);

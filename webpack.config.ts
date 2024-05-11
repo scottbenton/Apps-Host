@@ -9,6 +9,7 @@ const config = constructBaseWebpackConfig({
     ModuleScope.DeveloperTools,
     ModuleScope.HomePage,
     ModuleScope.DungeonManager,
+    ModuleScope.IronLink,
   ],
 });
 
